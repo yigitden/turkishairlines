@@ -17,7 +17,7 @@
               </span>
           </div>
         </div>
-        <div class="bg-white order-4 my-2 items-center justify-center flex" v-if="selectedCat === title">
+        <div class="bg-white order-4 my-2 items-center justify-center flex" v-if="showCard">
             <CategoryPriceCard :info="info.subcategories" :toggleValue="toggleValue"/>
           </div>
 </template>
@@ -30,7 +30,11 @@ export default {
         CategoryPriceCard
     },
     inheritAttrs: false,
-
+    data() {
+    return {
+      showCard: false
+    }
+  },
     props:{
     info:{
       type: Object,
@@ -39,6 +43,10 @@ export default {
     title: {
         type:String,
         default:''
+    },
+    index: {
+        type:Number,
+        default:null
     },
     selectedCat: {
         type:String,
@@ -51,7 +59,9 @@ export default {
   },
   methods:{
     handleChange(e){
+      this.showCard = e.target.value === this.title
       this.$emit('selected-category',e.target.value)
+ 
     }
   },
   computed:{
