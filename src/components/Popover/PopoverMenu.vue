@@ -5,7 +5,7 @@
     data-popover-target="popover-bottom"
     data-popover-placement="bottom"
     type="button"
-    class="text-white relative h-14 w-40 flex text-lg justify-between items-center bg-slate-400 hover:bg-slate-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 text-center "
+    class="text-white mt-6 relative h-14 w-64 flex text-lg justify-between items-center bg-slate-400 hover:bg-slate-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg px-5 py-2.5 text-center "
   >
     Yolcu ({{ passengerCount }})
     <font-awesome-icon :icon="setPassengerIcon" />

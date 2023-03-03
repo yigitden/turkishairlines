@@ -1,6 +1,6 @@
 <template>
   <section
-    class="main-section relative py-10 bg-black sm:py-16 lg:py-24 xl:py-32 h-screen flex items-center "
+    class="main-section relative py-10 bg-black sm:py-16 lg:py-24 xl:py-32 h-screen flex items-center overflow-hidden"
   >
     
     <div class="relative px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
