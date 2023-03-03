@@ -13,7 +13,8 @@
           </div>
           <div class="flex flex-col items-center">
             <span>Yolcu Basina</span>
-            <span class="font-bold">{{info.subcategories[0].price.currency}} {{info.subcategories[0].price.amount}}</span>
+            <span class="font-bold">{{info.subcategories[0].price.currency}} {{ checkDiscount }}
+              </span>
           </div>
         </div>
         <div class="bg-white order-4 my-2 items-center justify-center flex" v-if="selectedCat === title">
@@ -51,6 +52,11 @@ export default {
   methods:{
     handleChange(e){
       this.$emit('selected-category',e.target.value)
+    }
+  },
+  computed:{
+    checkDiscount () {
+      return this.toggleValue && this.info.subcategories[0].brandCode === 'ecoFly' ? (this.info.subcategories[0].price.amount / 2) : this.info.subcategories[0].price.amount 
     }
   }
 

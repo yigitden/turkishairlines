@@ -5,7 +5,9 @@
         <span class="font-bold text-2xl">{{ item.brandCode }}</span>
         <div>
           <span class="text-sm pr-2">{{ item.price.currency }}</span>
-          <span class="font-bold text-2xl">{{ item.price.amount }}</span>
+          <span class="font-bold text-2xl">
+            {{ toggleValue && item.brandCode === 'ecoFly' ? (item.price.amount / 2) : item.price.amount }}
+          </span>
         </div>
       </div>
       <div class="border border-gray-300 h-52">
@@ -44,11 +46,19 @@ export default {
       default: false,
     },
   },
+  computed: {
+    discount () {
+      return this.toggleValue
+    }
+  },
   methods:{
     goToResultPage (status,amount,currency) {
+      if(this.toggleValue) {
+         amount = amount / 2
+      }
         this.$store.commit('updateFlightStatus',status)
         this.$router.push({ name: "FinalResult"});
-        const fullPrice = currency+' '+amount
+        let fullPrice = currency+' '+amount
         if(status === 'AVAILABLE') {
             this.$store.commit('updatePaymentPrice',fullPrice)
         }
